@@ -1,0 +1,29 @@
+diff --git a/dist/components/WalletButton.svelte b/dist/components/WalletButton.svelte
+index 6044ae5aa50389c917fa81fa9c8c225dfcedd44e..56d548f551485f75df5c3cb9c7b812dc529c490a 100644
+--- a/dist/components/WalletButton.svelte
++++ b/dist/components/WalletButton.svelte
+@@ -75,7 +75,7 @@ walletStore.subscribe(async (newValue) => {
+     isLoadingNameAndProfilePicture = true;
+     const walletNameAndProfilePicture = await walletAddressToNameAndProfilePicture(newValue.publicKey);
+     // HACK: this is a hack to get around glow weirdly being selected first
+-    walletName = "mikemaccana.abc"; //  walletNameAndProfilePicture.walletName;
++    walletName = "Shyn'nanigans.ksh"; //  walletNameAndProfilePicture.walletName;
+     profilePicture = walletNameAndProfilePicture.profilePicture;
+     isLoadingNameAndProfilePicture = false;
+ });
+diff --git a/dist/components/molecules/WalletModal.svelte b/dist/components/molecules/WalletModal.svelte
+index f01148656bf8c48f3237c9f37745c3333cbadbf1..2d1b0c1678d9df36787a2fbce74ed315f0e0d6c3 100644
+--- a/dist/components/molecules/WalletModal.svelte
++++ b/dist/components/molecules/WalletModal.svelte
+@@ -65,9 +65,10 @@ const getStarted = () => {
+   aria-modal="true"
+   role="dialog"
+   bind:this={backdrop}
+-  on:click={(event) => closeModal(event)}
++  
+ >
+   <div class="wallet-adapter-modal-content">
++    <button on:click={(event) => closeModal(event)}></button>
+     <CloseButton clickHandler={() => dispatch("close")} />
+ 
+     {#if installedWalletAdaptersWithReadyState.length}

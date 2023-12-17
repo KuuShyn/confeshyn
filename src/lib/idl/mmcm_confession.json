@@ -1,0 +1,100 @@
+{
+  "version": "0.1.0",
+  "name": "mmcm_confession",
+  "instructions": [
+    {
+      "name": "sendConfession",
+      "accounts": [
+        {
+          "name": "confession",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "content",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "addReact",
+      "accounts": [
+        {
+          "name": "confession",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "removeReact",
+      "accounts": [
+        {
+          "name": "confession",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Confession",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "reactionCount",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ContentTooLong",
+      "msg": "The provided content should be 500 characters long maximum."
+    }
+  ],
+  "metadata": {
+    "address": "XCEGtQtTDaAjiK68qagRqikQVUoeVqQNh7ZmfKcwfa1"
+  }
+}
